@@ -51,6 +51,23 @@ def average_line(lines):
         int(np.mean(y2s))
     )
 
+"""
+Function `hough_cv2`: Detects lines in an image using the probabilistic Hough transform (cv2.HoughLinesP).
+The main goal is to identify sloped (non-horizontal) lines that represent lane edges for navigation,
+and compute a centerline between them to determine an automatic steering angle.
+
+Key steps of the algorithm:
+1. The Hough transform is applied with tuned parameters to detect relevant lines in the image mask.
+2. Horizontal lines (near-zero slope) are discarded to avoid false positives.
+3. The total number of detected lines is limited: if more than 20 are found, all lines are ignored to reduce noise.
+4. Lines are classified as left or right depending on their horizontal position (less than or greater than 128 px).
+5. An average line is computed for each group (left and right).
+6. A centerline is generated from these averages, and an error is calculated relative to the image center.
+7. The steering angle is adjusted proportionally to this error using a defined gain (Kp).
+8. If no valid lines are detected or there are too many lines, the steering remains straight.
+
+The result is an image with the lane lines overlaid and the steering angle adjusted accordingly.
+"""
 def hough_cv2(image,img_mask):
     img_rgb = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
     
