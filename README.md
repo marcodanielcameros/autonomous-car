@@ -1,3 +1,6 @@
+
+![Generame una imagen para fondo de pantalla de un carro autonomo en una ciudad futurista con un carro tecnologico futurista que la imagen sea para un celular las medidas sean en portrait  __Y que se note que el carro es autonomo la imagen se](https://github.com/user-attachments/assets/f19ff66f-ebaf-49dd-883d-9cd1aa512efd)
+
 This project simulates an autonomous car in the Webots robot simulator, using a camera for real-time lane detection and control. The system processes camera input through OpenCV to detect road lanes using image processing techniques such as grayscale conversion, blurring, Canny edge detection, region of interest masking, and Hough line transformation.
 
 🔍 Features
